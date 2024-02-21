@@ -2,9 +2,13 @@
 
 **NOTE:**  This project is a clone of the [zephyr-cyw43-driver](https://github.com/beechwoods-software/zephyr-cyw43-driver.git) project.    
 The main reason for this project is it to work with Zephyr V3.5, as the original project appears have dependencies Zephyr V3.6 (RC-levels)
-The most significant difference, but not only modification, is changing ***clk_sys*** to ***xtal_clk*** in the ***rpi_pico_w.overlay***.
+## List of changes
+* Changing ***clk_sys*** to ***xtal_clk*** in the ***rpi_pico_w.overlay***.
+* Copied the ***dts*** directory into the ***app*** directory.
+* Changes to the ***CMakeList.txt*** files.
+* Add top-level ***Kconfig*** file. 
 
-# Back to the original discription...
+# Back to the Project Discription...
 
 This is an integration of the georgerobotics cyw43-driver code for use with the Zephyr OS and its native IP stack. It currently only contains board support for Raspberry Pi Pico hardware, but can easily be extended to others. 
 
@@ -18,7 +22,9 @@ Once you've set up the Zephyr development environment, you can use the **west** 
   cd <directory where you want your zephyr build workspace>
   west init -m https://github.com/beechwoods-software/zephyr-cyw43-driver --mr main my-workspace
   cd my-workspace
-  (cd zephyr-cyw43-driver; git submodule init; git submodule update)
+  cd zephyr-cyw43-driver
+  git submodule init
+  git submodule update
   west update
   cd zephyr-cyw43-driver
   west build -b rpi_pico_w app
