@@ -1,0 +1,16 @@
+menu "App"
+config WIFI_SSID
+	string "WIFI SSID - Network name"
+	default ""
+
+config WIFI_PSK
+	string "WIFI PSK - Network password key"
+	default ""
+
+rsource "../Kconfig"
+endmenu
+
+menu "Zephyr"
+source "Kconfig.zephyr"
+endmenu
+
