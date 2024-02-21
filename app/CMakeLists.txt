@@ -10,7 +10,13 @@ set(EXTRA_CONF_FILE local.conf)
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 project(app LANGUAGES C)
 
-target_sources(app PRIVATE src/main.c)
+
+include_directories(app PRIVATE src)
+
+FILE(GLOB app_sources src/*.c)
+target_sources(app PRIVATE
+  ${app_sources}
+  )
 
 add_subdirectory(../ build/drivers)
 
