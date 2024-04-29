@@ -27,7 +27,6 @@
 #include <zephyr/kernel.h>
 
 #include "hardware/gpio.h"
-#include "hardware/uart.h"
 #include "hardware/structs/timer.h"
 #include "picowi_pico.h"
 
